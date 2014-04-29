@@ -8,9 +8,9 @@
 <% if @location_custom_cfg_prepend -%><% @location_custom_cfg_prepend.each do |value| -%>
     <%= value %>
 <% end -%><% end -%>
-<% if @location_cfg_prepend -%><% @location_cfg_prepend.sort_by {|k,v| k}.each do |key,value| -%>
+<% if @location_cfg_prepend -%><% @location_cfg_prepend.sort_by {|k,v| k}.each do |key,values| Array(values).each do |value| -%>
     <%= key %> <%= value %>;
-<% end -%><% end -%>
+<% end -%><% end -%><% end -%>
 <% if defined? @www_root -%>
     root  <%= @www_root %>;
 <% end -%>
@@ -32,9 +32,9 @@
 <% if defined? @auth_basic_user_file -%>
     auth_basic_user_file <%= @auth_basic_user_file %>;
 <% end -%>
-<% if @location_cfg_append -%><% @location_cfg_append.sort_by {|k,v| k}.each do |key,value| -%>
+<% if @location_cfg_append -%><% @location_cfg_append.sort_by {|k,v| k}.each do |key,values| Array(values).each do |value| -%>
     <%= key %> <%= value %>;
-<% end -%><% end -%>
+<% end -%><% end -%><% end -%>
 <% if @location_custom_cfg_append -%><% @location_custom_cfg_append.each do |value| -%>
     <%= value %>
 <% end -%><% end -%>

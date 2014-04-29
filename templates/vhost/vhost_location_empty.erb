@@ -1,6 +1,6 @@
   location <%= @location %> {
-<% if @location_custom_cfg -%><% @location_custom_cfg.sort_by {|k,v| k}.each do |key,value| -%>
+<% if @location_custom_cfg -%><% @location_custom_cfg.sort_by {|k,v| k}.each do |key,values| Array(values).each do |value| -%>
     <%= key %> <%= value %>;
-<% end -%><% end -%>
+<% end -%><% end -%><% end -%>
   }
 
