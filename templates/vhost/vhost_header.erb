@@ -5,6 +5,9 @@ server {
   listen [<%= @ipv6_listen_ip %>]:<%= @ipv6_listen_port %> <% if @ipv6_listen_options %><%= @ipv6_listen_options %><% end %>;
 <% end %>
   server_name           <%= @rewrite_www_to_non_www ? @name.gsub(/^www\./, '') : @server_name.join(" ") %>;
+<% if defined? @resolver -%>
+  resolver              <%= @resolver %>;
+<% end -%>
 <% if defined? @auth_basic -%>
   auth_basic           "<%= @auth_basic %>";
 <% end -%>
